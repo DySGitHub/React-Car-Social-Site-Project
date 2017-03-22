@@ -14,20 +14,11 @@ class App extends Component {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="carpost">Submit a Car</Link></li>
                 <li><Link to="/about">About</Link></li>
-              </ul>
-        </nav>
-        {this.props.children}
-        <nav className="navbar navbar-default navbar-static-bottom">
-            <div id="navbar" className="navbar-collapse collapse">
-              <ul className="nav navbar-nav">
-                <li><h4>Copyright 2017</h4></li>
-                <li><Link to="/contact">Contact</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
 
               </ul>
-            </div>
-        
         </nav>
-        
+        {this.props.children}        
       </div>
         
        

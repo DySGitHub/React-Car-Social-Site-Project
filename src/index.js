@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import 'react-select/dist/react-select.css';
+import Select from 'react-select';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import './index.css';
 import Home from './Home';

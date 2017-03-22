@@ -15,11 +15,11 @@ class CarPost extends Component {
 	constructor(props) {
         if (JSON.parse(localStorage.getItem('cars'))==null)
             {
-                var newId = 0;
+            var newId = 0;
             }
         else
             {
-        	        var newId = (JSON.parse(localStorage.getItem('cars'))[JSON.parse(localStorage.getItem('cars')).length - 1].id) + 1;
+        	var newId = (JSON.parse(localStorage.getItem('cars'))[JSON.parse(localStorage.getItem('cars')).length - 1].id) + 1;
             }
 
 	  super(props);
@@ -126,7 +126,8 @@ class CarPost extends Component {
 					    				className="form-control" 
 					    				id="make" 
 					    				placeholder="Enter the make of the car" />
-					  </div>
+					  </div>            
+                    
 					  <div className="form-group">
 					    <label htmlFor="description">Car Description</label>
 					    <textarea className="form-control" 
