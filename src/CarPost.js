@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-
-
+import Moment from 'react-moment';
 import { browserHistory } from 'react-router';
-
 const CLOUDINARY_UPLOAD_PRESET = 'csxglbua';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/ds7zkewzh/upload';
 
@@ -13,7 +11,8 @@ const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/ds7zkewzh/upload'
 class CarPost extends Component {
 
 	constructor(props) {
-        if (JSON.parse(localStorage.getItem('cars'))==null)
+        var carscheck = JSON.parse(localStorage.getItem('cars'));
+        if (carscheck === null || carscheck.length === 0)
             {
             var newId = 0;
             }
@@ -21,9 +20,14 @@ class CarPost extends Component {
             {
         	var newId = (JSON.parse(localStorage.getItem('cars'))[JSON.parse(localStorage.getItem('cars')).length - 1].id) + 1;
             }
+        
+        var moment = require('moment');
+
+         var postdate = moment().format("DD-MM-YYYY HH:mm");
+
 
 	  super(props);
-
+        
 	  this.state = {
 	  	cars: JSON.parse(localStorage.getItem('cars')) || [],
 	  	newCar: {
@@ -31,6 +35,7 @@ class CarPost extends Component {
             username: "User Name",
 	  		make: "Car Make",
 	  		description: "Description",
+            date: postdate,
 	  	},
 	  	uploadedFileCloudinaryUrl: ''
 	  };

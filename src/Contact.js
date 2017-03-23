@@ -7,7 +7,9 @@ import { browserHistory } from 'react-router';
 class Contact extends Component {
     
     constructor(props) {
-        if (JSON.parse(localStorage.getItem('feedbacks'))==null)
+        
+         var fbcheck = JSON.parse(localStorage.getItem('feedbacks'));
+        if (fbcheck == null || fbcheck.length == 0)
             {
             var cId = 0;
             }
@@ -20,7 +22,7 @@ class Contact extends Component {
 
 	  this.state = {
 	  	feedbacks: JSON.parse(localStorage.getItem('feedbacks')) || [],
-	  	newFeedback: {
+	  	 newFeedback: {
             id: cId,
             username: "User Name",
 	  		comment: "Comment",
@@ -32,24 +34,36 @@ class Contact extends Component {
 	
 
 	submitFeedback() {
+        
 		console.log('Submit Feedback');
 		console.log(this.username.value, this.comment.value);
-		let newFeedback = this.state.newFeedback;
-        newFeedback.username = this.username.value;
-		newFeedback.comment = this.comment.value;
+     
+            let newFeedback = this.state.newFeedback;
+            newFeedback.username = this.username.value;
+		      newFeedback.comment = this.comment.value;
 
-		this.setState({newFeedback});
+		      this.setState({newFeedback});
 
-		let feedbacks = this.state.feedbacks;
-		feedbacks.push(newFeedback);
+		      let feedbacks = this.state.feedbacks;
+		      feedbacks.push(newFeedback);
 
-		this.setState({feedbacks});
-		localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-		console.log(feedbacks);
-		//browserHistory.push('/contact');
+		      this.setState({feedbacks});
+        	
 
+		      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+		      console.log(feedbacks);
+window.location.reload();        
 	}
     
+    
+     delete(feedback){
+    const newState = this.state.feedbacks;
+    if (newState.indexOf(feedback) > -1) {
+      newState.splice(newState.indexOf(feedback), 1);
+      this.setState({feedbacks: this.state.feedbacks});
+      feedbacks: JSON.parse(localStorage.setItem("feedbacks", JSON.stringify(this.state.feedbacks)));
+    }
+     }
     
     displayFeedback() {
 		let feedbackArray = [];
@@ -57,10 +71,10 @@ class Contact extends Component {
 			feedbackArray.push(
 				<div className="col-sm-12">
 						<div className="caption">
-			        <h3>Posted By: {feedback.username}</h3>
+			        <h3>Posted By: {feedback.username} & {feedback.id}</h3>
                     
 			        <p>{feedback.comment}</p>
-                <button type="button" /*onClick={this.delete.bind(this, car)}*/ className="btn btn-danger btn-xs">Delete</button>
+                <button type="button" onClick={this.delete.bind(this, feedback)} className="btn btn-danger btn-xs">Delete</button>
 
 			      </div>
 					</div>
@@ -103,16 +117,18 @@ class Contact extends Component {
                     
 
 					  <button type="button" onClick={this.submitFeedback} className="btn btn-default">Submit</button>
+
 					</form>
     
 
 <h2>Contact Details</h2>
-
+<h5>Phone - 01024929349</h5>
+<h5>Email - <a href="mailto:20063614@mail.wit.ie">20063614@mail.wit.ie</a></h5>
 				</div>
 			</div>
            </div>
         <div id="contactlist" className="col-sm-6" >
-         <div id="clrow" className="row" classname="col-sm-12" >
+         <div id="clrow" className="row col-sm-12" >
 		<div classname="col-sm-12">
              
             </div>

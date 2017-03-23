@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 
-const cars = JSON.parse(localStorage.getItem('cars'));
-
-function searchingFor(term){
-    return function(x){
-        return x.make.toLowerCase().includes(term.toLowerCase()) || !term;
+function searchingFor(term)
+{
+    return function(x)
+    {
+        return x.first.toLowerCase().includes(term.toLowerCase()) || !term;
     }
 }
 class Home extends Component {
@@ -46,9 +46,8 @@ class Home extends Component {
     
 	displayCar() {
 		let resultsArray = [];
-        
-		this.state.cars.filter(searchingFor(this.state.term)).map((car, i) => {
-                
+        var options =  this.options ;
+		this.state.cars.map((car, i) => {
 			resultsArray.push(
 				<div className="col-md-12">
 					<div className="thumbnail">
@@ -65,7 +64,10 @@ class Home extends Component {
 					</div>
 				</div>
 				);
+        
+
 		});
+
 		return resultsArray; 
 
 	}
@@ -73,25 +75,39 @@ class Home extends Component {
     
 
 	render() {
+        const {term, cars} = this.state;
 		return (
             <div>
 			<div className="row">
             				<div className="col-md-12">
 
 				<h1>Home</h1>
-            <form>
-            
-            
-                <input type="text"
-                 onChange={this.searchHandler}
-                 value={this.state.term}
-                  placeholder="Car Make Search"/>
-                   
-                </form>
             {this.displayCar()}
             </div>
 			</div>
-           
+            <div id="carsearch">
+                <form>
+                <input type="text"
+                 onChange={this.searchHandler}
+                 value={term}/>
+                   
+                </form>
+                {
+            cars.filter(searchingFor(term)).map(car =>
+                 <div key={car.id}>
+                <h3>ID: {car.id}</h3>
+                <h3>Name: {car.username}</h3>
+                <h3>Make: {car.make}</h3>
+                <h3>Model: {car.description}</h3>
+                <br></br>
+                <br></br>
+                </div>
+            
+                 
+                )
+                
+                }
+                </div>
             
       </div>
            
@@ -100,3 +116,47 @@ class Home extends Component {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div id="carsearch">
+                <form>
+                <input type="text"
+                 onChange={this.searchHandler}
+                 value={this.state.term}/>
+                   
+                </form>
+                {
+            this.state.cars.filter(searchingFor(this.state.term)).map(car =>
+                 <div key={car.id}>
+                <h3>ID: {car.id}</h3>
+                <h3>Name: {car.username}</h3>
+                <h3>Make: {car.make}</h3>
+                <h3>Model: {car.description}</h3>
+                <br></br>
+                <br></br>
+                </div>
+            
+                 
+                )
+                
+                }
+                </div>
