@@ -8,6 +8,7 @@ const CLOUDINARY_UPLOAD_PRESET = 'csxglbua';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/ds7zkewzh/upload';
 
 
+
 class CarPost extends Component {
 
 	constructor(props) {
@@ -72,6 +73,8 @@ class CarPost extends Component {
 	submitCar() {
 		console.log('Submit Car');
 		console.log(this.username.value, this.make.value, this.description.value);
+        if (this.username.value != '' && this.make.value != '' && this.description.value != '' && this.state.uploadedFileCloudinaryUrl != '')
+            {
 		let newCar = this.state.newCar;
         newCar.username = this.username.value;
 		newCar.make = this.make.value;
@@ -87,6 +90,13 @@ class CarPost extends Component {
 		localStorage.setItem('cars', JSON.stringify(cars));
 		console.log(cars);
 		browserHistory.push('/');
+                }
+        else
+            {
+                console.log("Oops")
+                alert("Please Fill The Required Fields");
+
+            }
 
 	}
 
@@ -144,7 +154,9 @@ class CarPost extends Component {
 					  <button type="button" onClick={this.submitCar} className="btn btn-default">Submit</button>
 					</form>
 				</div>
+
 			</div>
+
 		);
 	}
 }

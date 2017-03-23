@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 
 
 
+
 class Contact extends Component {
     
     constructor(props) {
@@ -34,7 +35,7 @@ class Contact extends Component {
 	
 
 	submitFeedback() {
-        
+        if (this.username.value != '' && this.comment.value != ''){
 		console.log('Submit Feedback');
 		console.log(this.username.value, this.comment.value);
      
@@ -52,7 +53,15 @@ class Contact extends Component {
 
 		      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
 		      console.log(feedbacks);
-window.location.reload();        
+window.location.reload();
+        }
+        else
+        {
+         console.log("O No");
+
+    alert("Please Fill The Required Fields");
+
+        }
 	}
     
     
@@ -65,6 +74,18 @@ window.location.reload();
     }
      }
     
+     edit(feedback){
+         let editfeedback = feedback;
+    var nameis=prompt("Please enter username",feedback.username);
+    var commentis=prompt("Please enter comment", feedback.comment);
+         editfeedback.username = nameis;
+         editfeedback.comment = commentis;
+         this.setState({editfeedback});
+         let feedbacks = this.state.feedbacks;
+         localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+         console.log(editfeedback);
+}
+    
     displayFeedback() {
 		let feedbackArray = [];
 		this.state.feedbacks.map((feedback, i) => {
@@ -74,7 +95,10 @@ window.location.reload();
 			        <h3>Posted By: {feedback.username} & {feedback.id}</h3>
                     
 			        <p>{feedback.comment}</p>
-                <button type="button" onClick={this.delete.bind(this, feedback)} className="btn btn-danger btn-xs">Delete</button>
+                <button type="button" onClick={this.delete.bind(this, feedback)} className="btn btn-danger btn-xs">Delete</button>  
+                <button type="button" onClick={this.edit.bind(this, feedback)} className="btn btn-primary btn-xs">Edit</button>
+
+                                
 
 			      </div>
 					</div>
@@ -91,7 +115,6 @@ window.location.reload();
         <div>
     <div id="contactform" className="col-sm-5">
     <h1>ContactPage</h1>  
-        
     <div className="row">
 				<div className="col-sm-12">
 					<h3>Add Feedback</h3>
@@ -103,12 +126,14 @@ window.location.reload();
 					    				ref={(input) => {this.username = input;}}
 					    				className="form-control" 
 					    				id="name" 
-					    				placeholder="Enter your name" />
+                                        placeholder="Enter Site Feedback"
+                                       />
 					  </div>
                                         
 					  <div className="form-group">
 					    <label htmlFor="comment">Your Comment</label>
 					    <input type="text" 
+                    
 					    				ref={(input) => {this.comment = input;}}
 					    				className="form-control" 
 					    				id="comment" 
@@ -124,6 +149,13 @@ window.location.reload();
 <h2>Contact Details</h2>
 <h5>Phone - 01024929349</h5>
 <h5>Email - <a href="mailto:20063614@mail.wit.ie">20063614@mail.wit.ie</a></h5>
+    
+    
+    <div id="rrrrrrr">
+        
+    </div>
+    
+    
 				</div>
 			</div>
            </div>
