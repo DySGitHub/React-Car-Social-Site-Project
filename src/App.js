@@ -18,7 +18,13 @@ class App extends Component {
 
               </ul>
         </nav>
-        {this.props.children}        
+        {this.props.children} 
+         <nav className="navbar navbar-default navbar-fixed-bottom">
+              <ul className="nav navbar-nav">
+                        <li><Link to="/contact">Contact</Link></li>
+
+              </ul>
+        </nav>
       </div>
         
        

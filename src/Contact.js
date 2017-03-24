@@ -82,8 +82,13 @@ window.location.reload();
          editfeedback.comment = commentis;
          this.setState({editfeedback});
          let feedbacks = this.state.feedbacks;
-         localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+         		      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+
+
          console.log(editfeedback);
+
+
+
 }
     
     displayFeedback() {
@@ -95,8 +100,8 @@ window.location.reload();
 			        <h3>Posted By: {feedback.username} & {feedback.id}</h3>
                     
 			        <p>{feedback.comment}</p>
-                <button type="button" onClick={this.delete.bind(this, feedback)} className="btn btn-danger btn-xs">Delete</button>  
-                <button type="button" onClick={this.edit.bind(this, feedback)} className="btn btn-primary btn-xs">Edit</button>
+                <button type="button" onClick={this.delete.bind(this, feedback)} className="btn btn-danger btn-xs">Delete</button> &nbsp;  
+                <button type="button" onClick={this.edit.bind(this, feedback)} className="btn btn-info btn-xs">Edit</button>
 
                                 
 
@@ -114,7 +119,7 @@ window.location.reload();
     return (
         <div>
     <div id="contactform" className="col-sm-5">
-    <h1>ContactPage</h1>  
+    <h1>Contact Us</h1>  
     <div className="row">
 				<div className="col-sm-12">
 					<h3>Add Feedback</h3>
@@ -152,7 +157,7 @@ window.location.reload();
     
     
     <div id="rrrrrrr">
-        
+    
     </div>
     
     
