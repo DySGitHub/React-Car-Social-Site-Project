@@ -7,7 +7,7 @@ class About extends Component {
     return (
         <div id="AboutPage" className="col-lg-11">
     <h1>About Us</h1>        
-    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus interdum lectus, non ultricies ligula laoreet et. In a porta velit. Quisque felis risus, luctus et euismod ut, mattis a augue. Pellentesque rutrum felis eu lectus vestibulum dapibus. Mauris at quam eget felis accumsan euismod. Praesent posuere eget mi vel auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+    <h4>Lorem ipsum doloor sit amet, consectetur adipiscing elit. Maecenas faucibus interdum lectus, non ultricies ligula laoreet et. In a porta velit. Quisque felis risus, luctus et euismod ut, mattis a augue. Pellentesque rutrum felis eu lectus vestibulum dapibus. Mauris at quam eget felis accumsan euismod. Praesent posuere eget mi vel auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
     
         
     <h4>Suspendisse feugiat lorem et felis condimentum, sit amet egestas diam euismod. Proin sollicitudin tempor metus a luctus. Fusce vel felis mauris. Praesent molestie arcu eu arcu pulvinar, id consequat elit placerat. Morbi sollicitudin mi at feugiat pellentesque. Maecenas rhoncus et ante nec rutrum. Suspendisse finibus ut justo in mollis. Suspendisse mattis id ex ut dignissim. Sed eu metus sed neque sodales pulvinar.</h4>
