@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 
 
 class About extends Component {
+
+
+
+
   render() {
     return (
         <div id="AboutPage" className="col-lg-11">
+
     <h1>About Us</h1>        
     <h4>Lorem ipsum doloor sit amet, consectetur adipiscing elit. Maecenas faucibus interdum lectus, non ultricies ligula laoreet et. In a porta velit. Quisque felis risus, luctus et euismod ut, mattis a augue. Pellentesque rutrum felis eu lectus vestibulum dapibus. Mauris at quam eget felis accumsan euismod. Praesent posuere eget mi vel auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
     

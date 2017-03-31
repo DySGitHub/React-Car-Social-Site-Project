@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { Modal, Button } from 'react-bootstrap';
+
 
 
 const loadcars = [
@@ -7,43 +9,27 @@ const loadcars = [
               'id': 1,
               'username': 'Tomas',
               'make': 'Mercedes',
-              'description': 'TBA',
+              'description': 'Mercedes S Class, Used Car',
               'price': '55000.00',
-              image: '',
-              date: 'N/A'
+              image: 'http://res.cloudinary.com/dcsztxsuq/image/upload/v1490967882/2017-mercedes-benz-c300-coupe-12_n0irgb.jpg',
+              date: '30-03-2017'
               
           }, {
                'id': 2,
               'username': 'Andy',
               'make': 'Ferrari',
-              'description': 'TBA',
+              'description': 'Ferrari 488, New, 5.0l Engine',
               'price': '120000.00',
-              image: '',
-              date: 'N/A'
+              image: 'http://res.cloudinary.com/dcsztxsuq/image/upload/v1490967940/54f07ac8c35b6_su4ka3.jpg',
+              date: '30-03-2017'
           }, {
              'id': 3,
               'username': 'Alex',
               'make': 'Ford',
-              'description': 'TBA',
+              'description': 'Ford Focus, Used',
               price: '21000.00',              
-              image: '',
-              date: 'N/A'
-          }, {
-              'id': 4,
-              'username': 'Bob',
-              'make': 'Nissan',
-              'description': 'TBA',
-               price: '15000.00',
-              image: '',
-              date: 'N/A'
-          }, {
-               'id': 5,
-              'username': 'George',
-              'make': 'Toyota',
-              'description': 'TBA',
-              'price': '12000.00',
-              image: '',
-              date: 'N/A'
+              image: 'http://res.cloudinary.com/dcsztxsuq/image/upload/v1490968022/used_car_jump_osjy1z.jpg',
+              date: '30-03-2017'
           }
     ]
 
@@ -80,12 +66,18 @@ localStorage.setItem('loadcars', JSON.stringify(loadcars));
         
 	  }
       this.searchHandler = this.searchHandler.bind(this);
+
+
+
+
+
+
         var carscheck = JSON.parse(localStorage.getItem('cars'));
         if (carscheck === null || carscheck.length === 0)
             {
                 let cars = this.state.cars;
 
-cars.push(loadcars["0"], loadcars["1"], loadcars["2"], loadcars["3"], loadcars["4"]);
+cars.push(loadcars["0"], loadcars["1"], loadcars["2"]);
 
         
 		this.setState({cars});
@@ -96,6 +88,10 @@ cars.push(loadcars["0"], loadcars["1"], loadcars["2"], loadcars["3"], loadcars["
             
             
         }
+
+
+
+
     }    
     
     searchHandler(event){
@@ -123,7 +119,8 @@ cars.push(loadcars["0"], loadcars["1"], loadcars["2"], loadcars["3"], loadcars["
     var priceis=prompt("Please enter price", car.price);
     var descriptionis=prompt("Please enter description", car.description);
 
-
+if (nameis != null  && makeis != null && priceis != null && descriptionis != null && 
+  nameis != ''  && makeis != '' && priceis != '' && descriptionis != ''){
          editcar.username = nameis;
          editcar.make = makeis;
         editcar.price = priceis;
@@ -134,12 +131,17 @@ cars.push(loadcars["0"], loadcars["1"], loadcars["2"], loadcars["3"], loadcars["
 
 
          console.log(editcar);
+       }
+       else
+       {
+            alert("You Cannot Have Blank Fields!");
+
+       }
 
 
 
 
     }
-    
 
     
     
