@@ -147,7 +147,7 @@ if (nameis != null  && makeis != null && priceis != null && descriptionis != nul
     
 	displayCar() {
 		let resultsArray = [];
-		this.state.cars.filter(searchingFor(this.state.term)).map((car, i) => {
+		this.state.cars.filter(searchingFor(this.state.term)).reverse().map((car, i) => {
 			resultsArray.push( 
 				<div className="col-md-12" >
 					<div className="thumbnail" id="piclist">

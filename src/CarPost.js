@@ -4,8 +4,8 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import Moment from 'react-moment';
 import { browserHistory } from 'react-router';
-const CLOUDINARY_UPLOAD_PRESET = 'csxglbua';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/ds7zkewzh/upload';
+const CLOUDINARY_UPLOAD_PRESET = 'e8pe30hp';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dcsztxsuq/upload';
 
 
 
