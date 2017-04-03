@@ -151,7 +151,7 @@ if (nameis != null  && makeis != null && priceis != null && descriptionis != nul
 			resultsArray.push( 
 				<div className="col-md-12" >
 					<div className="thumbnail" id="piclist">
-						<img src={car.image} alt={car.make} />
+						<img src={car.image} alt={car.make} width="550" />
 						<div className="caption" id="carlist">
 			        <h3>{car.username}'s {car.make}</h3>
 			        <p>{car.description}</p>

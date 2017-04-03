@@ -4,8 +4,8 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import Moment from 'react-moment';
 import { browserHistory } from 'react-router';
-const CLOUDINARY_UPLOAD_PRESET = 'e8pe30hp';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dcsztxsuq/upload';
+const CLOUDINARYURL = 'https://api.cloudinary.com/v1_1/dcsztxsuq/upload';
+const CLOUDINARYPRESET = 'e8pe30hp';
 
 
 
@@ -39,15 +39,19 @@ class CarPost extends Component {
             price: "Price",
             date: postdate,
 	  	},
+          
 	  	uploadedFileCloudinaryUrl: ''
+          
 	  };
+        
 	  this.submitCar = this.submitCar.bind(this);
-	  this.onImageDrop = this.onImageDrop.bind(this);
+	  this.onImgDrop = this.onImgDrop.bind(this);
+        
 	}
     
       
 
-	onImageDrop(files) {
+	onImgDrop(files) {
 		this.setState({
       uploadedFile: files[0]
     });
@@ -56,8 +60,8 @@ class CarPost extends Component {
 	}
 
 	handleImageUpload(file) {
-    let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+    let upload = request.post(CLOUDINARYURL)
+                        .field('upload_preset', CLOUDINARYPRESET)
                         .field('file', file);
 
     upload.end((err, response) => {
@@ -106,17 +110,19 @@ class CarPost extends Component {
 
 
 		render() {
+            
+            
 		return (
 			<div className="row">
 				<div className="col-sm-11" id="carform">
-					<h1>Submit</h1>
+					<h1>Post Your Car</h1>
 					<form>
             <label htmlFor="dropzone">Car Image (Optional)</label>
 					<Dropzone
              style={{"width" : "19%", "height" : "25%", "border" : "2px solid #BBB", "background-color" : "#FFFFFF", "color": "#999" }}
 			      multiple={false}
 			      accept="image/*"
-			      onDrop={this.onImageDrop}>
+			      onDrop={this.onImgDrop}>
 			      <h5>Drop Image or Add Image via Click.</h5>
                 </Dropzone>
             <br>
@@ -209,7 +215,7 @@ class CarPost extends Component {
 					    placeholder="Enter a car description" />
 					  </div>
 
-					  <button type="button" onClick={this.submitCar} className="btn btn-default">Submit</button>
+					  <button type="button" onClick={this.submitCar} className="btn btn-info">Submit</button>
 					</form>
 				</div>
 

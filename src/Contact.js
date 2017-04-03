@@ -78,14 +78,23 @@ window.location.reload();
          let editfeedback = feedback;
     var nameis=prompt("Please enter username",feedback.username);
     var commentis=prompt("Please enter comment", feedback.comment);
-         editfeedback.username = nameis;
+    if (nameis != null  && commentis != null && nameis != ''  && commentis != '')
+    {
+     editfeedback.username = nameis;
          editfeedback.comment = commentis;
          this.setState({editfeedback});
          let feedbacks = this.state.feedbacks;
-         		      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+                      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
 
 
          console.log(editfeedback);
+
+       }
+       else
+       {
+            alert("You Cannot Have Blank Fields!");
+
+       }
 
 
 
@@ -93,13 +102,13 @@ window.location.reload();
     
     displayFeedback() {
 		let feedbackArray = [];
-		this.state.feedbacks.map((feedback, i) => {
+		this.state.feedbacks.reverse().map((feedback, i) => {
 			feedbackArray.push(
 				<div className="col-sm-12">
-						<div className="caption">
-			        <h3>Posted By: {feedback.username} & {feedback.id}</h3>
-                    
-			        <p>{feedback.comment}</p>
+						<div className="caption">                    
+			        <h4>{feedback.comment}</h4>
+                                        <p>Posted By: {feedback.username} </p>
+
                 <button type="button" onClick={this.delete.bind(this, feedback)} className="btn btn-danger btn-xs">Delete</button> &nbsp;  
                 <button type="button" onClick={this.edit.bind(this, feedback)} className="btn btn-info btn-xs">Edit</button>
 
@@ -131,7 +140,7 @@ window.location.reload();
 					    				ref={(input) => {this.username = input;}}
 					    				className="form-control" 
 					    				id="name" 
-                                        placeholder="Enter Site Feedback"
+                                        placeholder="Enter Your Username"
                                        />
 					  </div>
                                         
@@ -146,7 +155,7 @@ window.location.reload();
 					  </div>            
                     
 
-					  <button type="button" onClick={this.submitFeedback} className="btn btn-default">Submit</button>
+					  <button type="button" onClick={this.submitFeedback} className="btn btn-info">Submit</button>
 
 					</form>
     

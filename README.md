@@ -1,67 +1,77 @@
-# Assignment 1 - ReactJS app.
+# Assignment 1 - Car Seller ReactJS App.
 
-Name: ... your name ...
+Name: Dylan Sage
 
 ## Overview.
-...... A statement of the app concept and objectives (about a half-page) ........
+This application was built with ReactJS Framework for Software Systems Development Year 4 in the Software Frameworks module.  This application is a car selling where people can put up their cars for sale with an image and some car details, these uploaded cars can then be searched through on the site via the search box on the Home Page, they can also be deleted or edited. This Application has feedback section where users can leave site feedback, edit site feedback and delete site feedback. Using JSON Local Storage I am able to store the Cars persistently on the users local machine, if Database is empty then it is then seeded with 3 pieces of car data. This Application uses Cloudinary image hosting to upload and store car images that have been posted, the URL reference is then stored in the Database and retrieved when the Data is loaded. 
 
-
- . . . . . List of user features (excluding user registration and authentication) . . . . 
- 
- + Feature 1
- + Feature 2
- + Feature 3
- + etc
- + etc
+## User Features
++ Add a Car to the Car Sales Page with image upload 
++ Edit a Car on Car Sales Page
++ Delete a Car on Car Sales Page
++ Search Cars on Car Sales Page
++ Routing Through 4 Pages
++ Add Feedback on Contact Page
++ Delete Feedback on Contact Page
++ Edit Feedback on Contact Page
 
 ## Installation requirements.
-. . . .  List of software used to develop the app . . . . . . . 
-+ ReactJS v15.3.0
-+ Bootstrap 3
-+ create-react-app tool
-+ etc
-+ etc 
++ ReactJS v15.4.2
++ Bootstrap 3 & React-BootStrap
++ Moment was Used to get the Post Date of a Users Car
++ Used create-react-app tool
++ React Dropzone used to pass the image data into ReactJS page.
++ Cloudinary was used to upload and store images online.
++ Superagent was used to handle upload of image to Cloudinary.
++ JSON Local Storage was used to store Data in a Semi-Persistant State.
 
-. . . . . . Also, explain (to a third party) what steps one must take to run your app after cloning it from the repository, e.g. any non-standard software installation; any environment setup; how to start app; where to view app in browser . . . . . . . At its simplest this may just be: npm install + npm start
++ NPM install and NPM start will need to be run after you download application to run the application. There is 3 default cars that are seeded in the application if the Database is empty.
 
 ## Data Model Design.
 
-Diagram of app's data model (see example below) AND/OR a sample of the test data used (JSON or equivalent).
+My Data model contains Car which contains the variables username, image, id, date, car make, car model, price and car description, the image is a cloudinary url that is being stored. My Data Model also contains Feedback which has the variables username, id, comment and date.
 
-![][image1]
-
-Use meaningful sample data. Briefly explain any non-trivial issues.
+<img src=CarSellerModel.png alt=Model1 width="550" />
 
 ## App Component Design.
 
-A diagram showing the app's hierarchical component design (see example below). 
+Here is my App Component Design.
 
-![][image2]
+<img src=CarSellerDesign.png alt=Component1 width="550" />
 
 ## UI Design.
 
-. . . . . Screenshots of app's views (see example below) with appropriate captions (user regeneration and login views, if implemented, can be omitted) . . . . . . . 
+In my UI there is a Submit Car Page, Home Page, Contact Page and an About page. There are 4 Screenshots below showing each page. There is also a Navigation Header and Footer on the Site, the UI has been designed using a mixture of bootstrap and css.
 
-![][image3]
+<img src=CarSellerScreenShot.png alt=UI1 width="550" />
+<img src=CarSellerScreenShot2.png alt=UI2 width="550" />
+<img src=CarSellerScreenShot3.png alt=UI3 width="550" />
+<img src=CarSellerScreenShot4.png alt=UI4 width="550" />						
 
 ## Routing.
-. . . . List each route supported and state the associated view . . . . . 
 
-+ /foos - displays all published foos
-+ /foos/:id - detail view of a particular foo (:id)
-+ etc
-+ etc
++ Home: On this page you can view the cars in the system, search the cars in the system and delete or edit the cars in the system.
++ Submit Car: On this page you can submit your car with the relevant details and upload the image of the car.
++ Contact: On this page you can add feedback about the site, view feedback on the site, delete feedback on the site or edit feedback on the site.
++ About: On this page there is just dummy data about the company.
+
 
 ## Extra features
 
-. . . . . Briefly explain any non-standard features, functional or non-functional (e.g. user registration, authentication) developed for the app . . . . . .  
++ Search function for user to search all the cars in the system.   
++ Delete funciton for users to delete a car or Feedback in the system.
++ Edit funciton for users to edit a car or feedback in the system.
++ There is an ability for users to upload image to site.
++ Node Module React-Dropzone was added to upload the images to Cloudinary, this is then connected to the website  via a cloudinary URL and all  images are being stored in cloudinary. 
++ Moment Node Module is Used to get Current Date on the post when it is posted.
++ The site contains 4 routes and 2 data models.
++ The site is semi persistent with data being stored using JSON local storage.
+
 
 ## Independent learning.
 
-. . . . . State the non-standard aspects of Angular (or other related technologies) that you researched and applied in this assignment . . . . .  
++ I learned how to link React to Cloudinary and upload and retrive images using cloudinary with React.
++ I learned how to use the JSON local storage feature in the web application to store the data locally.
++ I learned how to search through the data in the system.
++ I learned how to delete & edit the data in the System.
 
-
-
-[image1]: ./model.png
-[image2]: ./design.jpg
-[image3]: ./screen.png
