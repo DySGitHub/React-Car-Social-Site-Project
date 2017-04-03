@@ -42,9 +42,16 @@ Here is my App Component Design.
 
 In my UI there is a Submit Car Page, Home Page, Contact Page and an About page. There are 4 Screenshots below showing each page. There is also a Navigation Header and Footer on the Site, the UI has been designed using a mixture of bootstrap and css.
 
++UI Home Page Image
 <img src=CarSellerScreenShot.PNG alt=UI1 width="550" />
+
++UI Submit Car Page Image
 <img src=CarSellerScreenShot2.PNG alt=UI2 width="550" />
+
++UI Home Contact Image
 <img src=CarSellerScreenShot3.PNG alt=UI3 width="550" />
+
++UI About Page Image
 <img src=CarSellerScreenShot4.PNG alt=UI4 width="550" />						
 
 ## Routing.
