@@ -24,7 +24,6 @@ This application was built with ReactJS Framework for Software Systems Developme
 + Cloudinary was used to upload and store images online.
 + Superagent was used to handle upload of image to Cloudinary.
 + JSON Local Storage was used to store Data in a Semi-Persistant State.
-
 + NPM install and NPM start will need to be run after you download application to run the application. There is 3 default cars that are seeded in the application if the Database is empty.
 
 ## Data Model Design.
@@ -43,10 +42,10 @@ Here is my App Component Design.
 
 In my UI there is a Submit Car Page, Home Page, Contact Page and an About page. There are 4 Screenshots below showing each page. There is also a Navigation Header and Footer on the Site, the UI has been designed using a mixture of bootstrap and css.
 
-<img src=CarSellerScreenShot.png alt=UI1 width="550" />
-<img src=CarSellerScreenShot2.png alt=UI2 width="550" />
-<img src=CarSellerScreenShot3.png alt=UI3 width="550" />
-<img src=CarSellerScreenShot4.png alt=UI4 width="550" />						
+<img src=CarSellerScreenShot.PNG alt=UI1 width="550" />
+<img src=CarSellerScreenShot2.PNG alt=UI2 width="550" />
+<img src=CarSellerScreenShot3.PNG alt=UI3 width="550" />
+<img src=CarSellerScreenShot4.PNG alt=UI4 width="550" />						
 
 ## Routing.
 
